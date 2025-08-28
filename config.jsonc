@@ -1,0 +1,65 @@
+    {
+    // 共通デフォルト設定 -----------------------------
+
+    // includeExtensions:
+    //   対象とする拡張子。空配列なら全ファイル許可
+    "includeExtensions": [ "txt", "log" ],
+
+    // preserveStructure:
+    //   true  = ソース側のディレクトリ構造を出力先に再現
+    //   false = 出力先直下にフラットコピー
+    "preserveStructure": true,
+
+    // maxDepth:
+    //   再帰の最大深さ
+    //   -1 = 無制限, 0 = 直下のみ
+    "maxDepth": -1,
+
+    // skipHidden:
+    //   .で始まる隠しファイルやフォルダをスキップ
+    "skipHidden": true,
+
+    // dryRun:
+    //   true  = 実際にはコピー/移動せず動作確認のみ
+    //   false = 実際に処理を実行
+    "dryRun": false,
+
+    // includePatterns / excludePatterns:
+    //   ファイル名に対する正規表現の配列
+    //   includePatterns が空でなければ一致したもののみ処理
+    //   excludePatterns に一致したものは除外
+    "includePatterns": [],
+    "excludePatterns": [],
+
+    // 処理対象フォルダの一覧 --------------------------
+    "targets": [
+        {
+        // === 実運用: phpbat =============================
+        // phpbat フォルダ → ご指定のパスに移動
+        "enabled": true,
+        "sourceDir": "F:\\Documents\\VSCodeProjects\\phpbat",
+        "destinationDir": "E:\\G：￥￥\\Logs\\phpbat", // ★ ご指定の「E:\G：￥￥\Logs」を使用
+        "mode": "move"
+        },
+        {
+        // === 実運用: pythonbat ==========================
+        // pythonbat フォルダ → ご指定のパスに移動
+        "enabled": true,
+        "sourceDir": "F:\\Documents\\VSCodeProjects\\pythonbat",
+        "destinationDir": "E:\\G：￥￥\\Logs\\pythonbat", // ★ ご指定の「E:\G：￥￥\Logs」を使用
+        "mode": "move",
+        "includeExtensions": [ "txt", "log" ]
+        },
+        {
+        // === サンプル（雛形） ============================
+        // 新しい対象を追加したいときはこのブロックをコピペして
+        // sourceDir / destinationDir を書き換え、enabled を true にしてください
+        "enabled": false,
+        "sourceDir": "D:\\サンプル\\入力",
+        "destinationDir": "E:\\G：￥￥\\Logs\\サンプル",
+        "mode": "copy",
+        "includeExtensions": [ "txt", "csv" ],
+        "includePatterns": [ "#/^(明細|レポート)_\\d{8}\\.csv$#u" ]
+        }
+    ]
+    }
